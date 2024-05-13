@@ -10,46 +10,48 @@
 let sceltaUtente = prompt('pari o dispari?');
 
 let numeroUtente = Number(prompt('scegli un numero da uno a 1 a 5'))
-
 let numeroComputer = generazioneNumero()
+let numCheck = isEven(numeroUtente, numeroComputer)
 
-let numCheck = EvenOrOdd(numeroUtente, numeroComputer)
+
+while (numeroUtente > 5 || numeroUtente < 1 ) {
+    alert('numero inserito non valido')
+    numeroUtente = Number(prompt('scegli un numero da uno a 1 a 5'))
+}
 
 function generazioneNumero() {
 
     let numRandom = Math.floor((Math.random() * 5) + 1);
-
     return numRandom
+
 }
 
-function EvenOrOdd(numeroUtente, numeroComputer){
+function isEven(numeroUtente, numeroComputer){
 
     let sum = numeroUtente + numeroComputer
 
-    if(sum % 2 === 0 ) {
+    if (sum % 2 === 0) {
 
-        let pari = sum
-        return pari
-
-    } else {
-
-        let dispari = sum
-        return dispari
+        return true
 
     }
 
+    return false
+    
+
 }
 
-if (sceltaUtente === 'pari' && numCheck % 2 === 0) {
+if (sceltaUtente === 'pari' && numCheck) {
     console.log('l utente ha vinto')
-} else if (sceltaUtente === 'dispari' && numCheck % 2 !== 0) {
+} else if (sceltaUtente === 'dispari' && numCheck) {
     console.log('l utente ha vinto')
 } else {
     console.log('l utente ha perso')
 }
 
 
-// console.log('sU', sceltaUtente)
-// console.log('nU', numeroUtente)
-// console.log('nC', numeroComputer)
-// console.log('ncheck', numCheck)
+
+console.log('sU', sceltaUtente)
+console.log('nU', numeroUtente)
+console.log('nC', numeroComputer)
+console.log('ncheck', numCheck)
